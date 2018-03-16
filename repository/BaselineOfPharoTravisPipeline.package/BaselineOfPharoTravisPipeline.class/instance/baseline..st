@@ -1,4 +1,7 @@
 baselines
 baseline: spec
 	<baseline>
-	spec for: #common do: [ spec group: 'default' with: #('PharoTravisPipeline') ]
+	spec
+		for: #common
+		do: [ spec package: 'PharoTravisPipeline'.
+			spec group: 'default' with: #('PharoTravisPipeline') ]
