@@ -1,8 +1,17 @@
 language: smalltalk
 sudo: false
 
+env:
+  global:
+    - AWS_DEFAULT_REGION=eu-central-1
+    - secure: "06o8zu9OOz/wvJOrXT7zMnfi7xMEPZ8E81B7TfQwBClePcVkHwHBKkataf9m0dgMWVg5/o88dGvJ8hTb7TN5cXAVGUA38CZ3dZequZUm24H91X5xVLOc2ermyQIvWP/YFREpXFHldcs940Pc2Otlr1P14cuxNYoizRRIoBIn1zI6Q+xScO+xw+2mDGOwyXbpZHTuXKY5Sya153lD9eVsTMyyY5h+bIPc+YwLflKKQyjqCMkZYLmSXwQKe/lSGZnyMB7PkndgLbFe5Atwt+XmyK0TphtCMsmI32oZ/S58TkebLuootPtPP+LLzS+R4cKiilDeuII7kQGYOGwW3Ri7rfZcGOUUWIYmqpY2iZzU8oKYKTD7mxtHa/hUcjW93X4h6dDP3beSOwZY7tY01xJhfZpbI4DBnEh2cXjqy35AwGQolOA7aHkSuUMS7QeriMkixJnJ06gUth6HlkcPjndpphhYMalbA+K0pu/7XtGHp6zBzn/z8C12cHZFD7NQKI/+FwhbHz6edV/+JkGRts52UPcAHekvsqxQUS4ryviGnNLvvpQ91lHkLKQBuHPTJ9o6J/4JXh67FCXGQx/f2DJACrGLAfcrJKuo8qMCEZgpygr9qk+A9Xhcv1+/kV3kTUAO9eIuH0CMlKnV8OzV6VEtcO4lsC7BRP/1iTd5JmhM6Z8="
+    - secure: "jvnS/DzsKu55VON00Euqb9x4D7i8ySgZHL9snJ+m1U+p9Oq1ds/EvcdbmtybKJ2VqUg/KMCkWeMGrIM4DpRwQZfWzWh994b5psOgk1OtI/DXSeJTNdK2fYapcIIFZpe0R5ThSRyc9KJYu8aDw+16exYURpL2EDaDmqUtnX+f937Xw14oaGn33q6nfCLF+xwy5V2/NM5vlaSQbpstTccWg64KlrhAhMzmczubVFK2d0e67OkMFRdeFJ9w1NG3RyDG2jzKh+YE7p3AX5og3jqgpLtq/aKrfUWXPVjcioV2MCkd/R9kxaQKIt3R1dX/41z/EzCj1asTfP5qAknvkrLdNqfZNxa0UTWhhlS/LhUj5XGqZ2xLXZ+LgFhh83zCXmM0kj9xdW7JvpChu8FEpE9MfBZjsdk/DMSzhTyev7x/XnJ4ya/E8e2T7Jd+13cif0i6Pl+ONwpSFFMaPlINJs/0u0TAKoXszqXVCDTJjmk3x7R29ZfOuxpvIrUhYHL0d37V1yjtwaIMq6d5yAdocQbc4P8xilCebm3GvMfp9VZg715XXOSCkwjzhs1FUc6RnroJmFZS+arDmG2ggnO3E+v67Ukrok9ODRWKsM8wVJqR+J9A3MivH6phCgorf7r4YEsif3/sGP/aJxOhPsqg8HlbNM6KZN8QtBgLnCwslPSmvL8="
+
 os:
   - linux
 
 smalltalk:
   - Pharo-6.1
+
+after_success:
+  - aws s3 cp "${SMALLTALK_CI_BUILD}/coveralls_results.json" s3://coverage.pharo-projects/$TRAVIS_REPO_SLUG/$TRAVIS_BUILD_NUMBER/coveralls_results.json
