@@ -1,0 +1,3 @@
+*PharoTravisPipelineExtensions
+testedExtension
+	^ true
