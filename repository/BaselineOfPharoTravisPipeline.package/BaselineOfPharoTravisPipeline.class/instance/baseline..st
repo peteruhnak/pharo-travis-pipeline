@@ -7,4 +7,4 @@ baseline: spec
 			spec
 				package: 'PharoTravisPipelineExtensions'
 				with: [ spec requires: #('PharoTravisPipeline') ].
-			spec group: 'default' with: #('PharoTravisPipeline') ]
+			spec group: 'default' with: #('PharoTravisPipeline' 'PharoTravisPipelineExtensions') ]
