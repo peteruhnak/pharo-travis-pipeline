@@ -9,11 +9,11 @@ SmalltalkCISpec {
 	#testing : {
 		#coverage : {
 			#packages : [
-				'PharoTravisPipeline'
+				'PharoTravisPipeline*'
 			]
 		},
 		#packages : [
-			'PharoTravisPipeline'
+			'PharoTravisPipeline*'
 		]
 	}
 }
