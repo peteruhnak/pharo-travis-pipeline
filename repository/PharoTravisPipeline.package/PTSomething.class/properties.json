@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "Something",
+	"category" : "PharoTravisPipeline",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "PTSomething",
+	"type" : "normal"
+}

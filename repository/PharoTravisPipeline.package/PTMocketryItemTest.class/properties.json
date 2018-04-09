@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "TestCase",
+	"category" : "PharoTravisPipeline-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"item"
+	],
+	"name" : "PTMocketryItemTest",
+	"type" : "normal"
+}
