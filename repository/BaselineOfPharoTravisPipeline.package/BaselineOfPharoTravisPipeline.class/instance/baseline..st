@@ -3,7 +3,10 @@ baseline: spec
 	<baseline>
 	spec
 		for: #common
-		do: [ spec package: 'PharoTravisPipeline'.
+		do: [ spec
+				baseline: 'Mocketry'
+				with: [ spec repository: 'github://dionisiydk/Mocketry:v4.0.x' ].
+			spec package: 'PharoTravisPipeline' with: [ spec requires: #('Mocketry') ].
 			spec
 				package: 'PharoTravisPipelineExtensions'
 				with: [ spec requires: #('PharoTravisPipeline') ].
