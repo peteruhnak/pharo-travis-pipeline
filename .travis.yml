@@ -18,4 +18,6 @@ before_install:
   - export PATH=$PATH:$HOME/.local/bin
 
 after_success:
+  - [ -e "${SMALLTALK_CI_BUILD}/PharoDebug.log" ]
+  - ! grep warnAboutDependencies -A 10 "${SMALLTALK_CI_BUILD}/PharoDebug.log"
   - aws s3 cp "${SMALLTALK_CI_BUILD}/coveralls_results.json" s3://coverage.pharo-projects/$TRAVIS_REPO_SLUG/$TRAVIS_BUILD_NUMBER/coveralls_results.json
