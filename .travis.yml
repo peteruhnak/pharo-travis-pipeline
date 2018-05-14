@@ -14,6 +14,7 @@ smalltalk:
   - Pharo-6.1
 
 before_install:
+  - . .ssh/load-key.sh
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
 
