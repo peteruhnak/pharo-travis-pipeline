@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+readonly BRANCH_NAME="${TRAVIS_BRANCH:-$CI_COMMIT_REF_NAME}"
+readonly TAG_NAME="${CI_COMMIT_TAG:-}"
+readonly TAG_VERSION="${TAG_NAME#v}"
+readonly CI_BUILD_ID="${TRAVIS_BUILD_NUMBER:-$CI_JOB_ID}"
+readonly BUILD_ID="${TAG_VERSION:-"${BRANCH_NAME}-${CI_BUILD_ID}"}"
+
+echo "BRANCH_NAME=$BRANCH_NAME"
+echo "TAG_NAME=$TAG_NAME"
+echo "TAG_VERSION=$TAG_VERSION"
+echo "CI_BUILD_ID=$CI_BUILD_ID"
+echo "BUILD_ID=$BUILD_ID"
