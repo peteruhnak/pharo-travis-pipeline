@@ -20,3 +20,12 @@ before_install:
 
 after_success:
   - aws s3 cp "${SMALLTALK_CI_BUILD}/coveralls_results.json" s3://coverage.pharo-projects/$TRAVIS_REPO_SLUG/$TRAVIS_BUILD_NUMBER/coveralls_results.json
+
+deploy:
+  - provider: script
+    skip_cleanup: true
+    script: scripts/deploy.sh
+  - provider: script
+    tags: true
+    skip_cleanup: true
+    script: scripts/deploy.sh
